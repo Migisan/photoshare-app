@@ -35,7 +35,7 @@ class PhotoController extends Controller
         Storage::cloud()->putFileAs('', $request->photo, $photo->filename, 'public');
 
         // トランザクション
-        DB::begininTransaction();
+        DB::beginTransaction();
         try {
             Auth::user()->photos()->save($photo);
             DB::commit();
