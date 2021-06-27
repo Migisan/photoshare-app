@@ -9,6 +9,21 @@ class Photo extends Model
 {
     protected $keyType = 'string';
 
+    /** JSONに含める属性 */
+    protected $appends = [
+        'url',
+    ];
+
+    /** JSONに含める属性 */
+    protected $visible = [
+        'id', 'owner', 'url',
+    ];
+
+    /** JSONに含めない属性 */
+    // protected $hidden = [
+    //     'user_id', 'filename', self::CREATED_AT, self::UPDATED_AT,
+    // ];
+
     const ID_LENGTH = 12;
 
     public function __construct(array $attributes = [])
@@ -47,5 +62,22 @@ class Photo extends Model
         }
 
         return $id;
+    }
+
+    /**
+     * リレーションシップ - usersテーブル
+     */
+    public function owner()
+    {
+        return $this->belongsTo('App\User', 'user_id', 'id', 'users');
+    }
+
+    /**
+     * アクセサ - url
+     * @return string
+     */
+    public function getUrlAttribute()
+    {
+        return Storage::cloud()->url($this->attributes['filename']);
     }
 }
