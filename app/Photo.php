@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Storage;
 
 class Photo extends Model
 {
@@ -23,6 +24,9 @@ class Photo extends Model
     // protected $hidden = [
     //     'user_id', 'filename', self::CREATED_AT, self::UPDATED_AT,
     // ];
+
+    /** １ページ値のアイテム数 */
+    protected $perPage = 1;
 
     const ID_LENGTH = 12;
 

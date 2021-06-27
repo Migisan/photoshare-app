@@ -55,6 +55,8 @@ class PhotoController extends Controller
     {
         $photos = Photo::with('owner')->orderBy(Photo::CREATED_AT, 'desc')->paginate();
 
+        \Debugbar::info($photos);
+
         return $photos;
     }
 
