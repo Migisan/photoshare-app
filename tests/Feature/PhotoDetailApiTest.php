@@ -41,6 +41,8 @@ class PhotoDetailApiTest extends TestCase
                                 'name' => $comment->author->name,
                             ],
                             'content' => $comment->content,
+                            'liked_by_user' => false,
+                            'likes_count' => 0
                         ];
                     })->all(),
             ]);
