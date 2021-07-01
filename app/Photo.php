@@ -9,7 +9,17 @@ use Illuminate\Support\Facades\Auth;
 
 class Photo extends Model
 {
+    /**
+     * 主キー
+     * @var string
+     */
     protected $keyType = 'string';
+
+    /**
+     * モデルの主キーを自動増分させるか
+     * @var boolean
+     */
+    public $incrementing = false;
 
     /** JSONに含める属性 */
     protected $appends = [
@@ -27,7 +37,7 @@ class Photo extends Model
     // ];
 
     /** １ページ値のアイテム数 */
-    protected $perPage = 1;
+    protected $perPage = 9;
 
     const ID_LENGTH = 12;
 

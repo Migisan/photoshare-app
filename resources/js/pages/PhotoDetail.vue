@@ -5,16 +5,16 @@
       <figcaption>Posted by {{ photo.owner.name }}</figcaption>
     </figure><!-- .photo-detail__pane photo-detail__image -->
     <div class="photo-detail__pane">
-      <button class="button button--like" :class="{'button--liked': photo.liked_by_user}" title="Like photo" @click="onLikeClikck">
-        <i class="icon icon-md-heart"></i><!-- .icon icon-md-heart -->
+      <button class="button button--like" :class="{'button--liked': photo.liked_by_user}" title="Like photo" @click="onLikeClick">
+        <i class="fas fa-heart"></i>
         {{ photo.likes_count }}
       </button><!-- .button button--like -->
       <a :href="`/photos/${photo.id}/download`" class="button" title="Download photo">
-        <i class="icon icon-md-arrow-round-down"></i><!-- .icon icon-md-arrow-round-down -->
+        <i class="fas fa-arrow-down"></i>
         Download
       </a><!-- .button -->
       <h2 class="photo-detail__title">
-        <i class="icon icon-md-chatboxes"></i><!-- .icon icon-md-chatboxes -->
+        <i class="fas fa-comments"></i>
         Comments
       </h2><!-- .photo-detail__title -->
       <ul v-if="photo.comments.length > 0" class="photo-detail__comments">

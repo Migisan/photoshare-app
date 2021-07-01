@@ -91,6 +91,7 @@ export default {
       const formData = new FormData()
       formData.append('photo', this.photo)
       const response = await axios.post('/api/photos', formData)
+      console.log(response)
 
       this.loading = false
 
@@ -112,6 +113,7 @@ export default {
         timeout: 6000
       })
 
+      console.log(response.data.id)
       this.$router.push(`/photos/${response.data.id}`)
     },
   },

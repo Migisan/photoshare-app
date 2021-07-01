@@ -29,9 +29,9 @@ class PhotoController extends Controller
         $extension = $request->photo->extension();
 
         $photo = new Photo();
-
+        
         $photo->filename = $photo->id . '.' . $extension;
-
+        
         // S3に保存
         // 第三引数の'public'はファイルを公開状態に指定
         Storage::cloud()->putFileAs('', $request->photo, $photo->filename, 'public');
